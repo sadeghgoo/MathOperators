@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol DescriptiveMathOperators {
+public protocol MathOperators {
   func plus(_ number: Self) -> Self
   func minus(_ number: Self) -> Self
   func times(_ number: Self) -> Self
@@ -12,7 +12,7 @@ public protocol DescriptiveMathOperators {
   func isSmallerThanOrEqual(_ number: Self) -> Bool
 }
 
-public extension DescriptiveMathOperators where Self: BinaryFloatingPoint {
+public extension MathOperators where Self: BinaryFloatingPoint {
   
   func plus(_ number: Self) -> Self {
     return self + number
@@ -53,7 +53,7 @@ public extension DescriptiveMathOperators where Self: BinaryFloatingPoint {
 
 }
 
-public extension DescriptiveMathOperators where Self: FixedWidthInteger {
+public extension MathOperators where Self: FixedWidthInteger {
   
   func plus(_ number: Self) -> Self {
     return self + number
@@ -92,7 +92,7 @@ public extension DescriptiveMathOperators where Self: FixedWidthInteger {
   }
 }
 
-public extension Double: DescriptiveMathOperators { }
-public extension Int: DescriptiveMathOperators {}
-public extension Float: DescriptiveMathOperators {}
+extension Double: MathOperators { }
+extension Int: MathOperators {}
+extension Float: MathOperators {}
 
